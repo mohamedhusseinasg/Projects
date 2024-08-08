@@ -1,0 +1,168 @@
+<odoo>
+    <data>
+        <record id="crm_view_form" model="ir.ui.view">
+            <field name="name">crm.lead</field>
+            <field name="model">crm.lead</field>
+            <field name="inherit_id" ref="crm.crm_lead_view_form"/>
+            <field name="arch" type="xml">
+                <header>
+                    <button string="Create Cost Sheet" name="create_cost_sheet" type="object" class="oe_highlight"/>
+                </header>
+                <!-- <xpath expr="//field[@name='user_id']" position="after"> -->
+                <!-- <field name="parent_product"/> -->
+                <!-- </xpath> -->
+                <xpath expr="//div[@class='oe_button_box']" position="inside">
+                    <button type="object" class="oe_highlight" icon="fa-book" name="get_cost_sheets">
+                        <field string="Cost Sheet" name="oppertunity_count" widget="statinfo"/>
+                    </button>
+                </xpath>
+            </field>
+        </record>
+        <record id="product_view_form" model="ir.ui.view">
+            <field name="name">product.template</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_only_form_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='detailed_type']" position="after">
+                    <field name="parent_product"/>
+                </xpath>
+                <xpath expr="//field[@name='taxes_id']" position="after">
+                    <field name="cost_price_oh"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="view_product_product_form_custom" model="ir.ui.view">
+            <field name="name">product.product.form.custom</field>
+            <field name="model">product.product</field>
+            <field name="inherit_id" ref="product.product_normal_form_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='detailed_type']" position="after">
+                    <field name="parent_product"/>
+                </xpath>
+                <xpath expr="//field[@name='taxes_id']" position="after">
+                    <field name="cost_price_oh"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="sale_view_form" model="ir.ui.view">
+            <field name="name">sale.order</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='origin']" position="after">
+                    <field name="flag" invisible="1"/>
+                </xpath>
+                <xpath expr="//div[@class='oe_button_box']" position="inside">
+                    <button type="object" class="oe_highlight" icon="fa-book" name="get_cost_sheets"
+                            invisible="flag == False">
+                        <field string="Cost Sheet" name="oppertunity_count" widget="statinfo"/>
+                    </button>
+                </xpath>
+                <xpath expr="/form/sheet/notebook/page/field[@name='order_line']/tree/field[@name='product_uom_qty']"
+                       position="after">
+                    <field name="real_qty" column_invisible="parent.flag == True"/>
+                </xpath>
+                <xpath expr="/form/sheet/notebook/page/field[@name='order_line']/tree/field[@name='real_qty']"
+                       position="inside">
+                    <field name="real_qty" column_invisible="parent.flag == False"/>
+                </xpath>
+                <xpath expr="//field[@name='payment_term_id']" position="after">
+                    <field name="total_discounts" invisible="1"/>
+                </xpath>
+                <xpath expr="//field[@name='total_discounts']" position="after">
+                    <field name="final_total" invisible="1"/>
+                </xpath>
+
+                <xpath expr="//field[@name='tax_totals']" position="replace">
+                    <label for="note" string="Price"/>
+                    <field name="total_prises" style="font-weight: bold; font-size: 1.2em;" nolabel="1" colspan="1"
+                           readonly="1"/>
+
+                </xpath>
+
+                <xpath expr="/form/sheet/notebook/page/group[@name='note_group']" position="after">
+                    <group class="oe_subtotal_footer oe_right">
+                        <label for="note" string="Total Discount"/>
+                        <field name="total_discounts" string=" Total Discount"
+                               style="font-weight: bold; font-size: 1.2em;" nolabel="1" colspan="1" readonly="1"/>
+                        <label for="note" string="Total"/>
+                        <field name="final_total" string="Final Total" style="font-weight: bold; font-size: 1.2em;"
+                               nolabel="1" colspan="1" readonly="1"/>
+                    </group>
+
+
+                </xpath>
+            </field>
+        </record>
+
+        <!-- #################### Widyh to the list ####################3333 -->
+        <!--         <record id="co_view_form" model="ir.ui.views">
+                    <field name="name">cost.sheet</field>
+                    <field name="model">cost.sheet</field>
+                    <field name="inherit_id" ref="cost_sheet.view_cost_sheet_form"/>
+                    <field name="arch" type="xml">
+                        <xpath expr="//field[@name='cost_sheet_line_ids']/tree/field[@name='product_id']" position="attributes">
+                            <attribute name="width">300px</attribute>.
+                        </xpath>
+                        <xpath expr="//field[@name='cost_sheet_line_ids']/tree/field[@name='product_quantity']"
+                               position="attributes">
+                            <attribute name="width">150px</attribute>.
+                        </xpath>
+                        <xpath expr="//field[@name='cost_sheet_line_ids']/tree/field[@name='qty']" position="attributes">
+                            <attribute name="width">150px</attribute>.
+                        </xpath>
+                        <xpath expr="//field[@name='cost_sheet_line_ids']/tree/field[@name='initial_cost_currency']"
+                               position="attributes">
+                            <attribute name="width">200px</attribute>.
+                        </xpath>
+                        <xpath expr="//field[@name='cost_sheet_line_ids']/tree/field[@name='initial_cost']"
+                               position="attributes">
+                            <attribute name="width">150px</attribute>.
+                        </xpath>
+                        <xpath expr="//field[@name='cost_sheet_line_ids']/tree/field[@name='cost_currency']"
+                               position="attributes">
+                            <attribute name="width">150px</attribute>.
+                        </xpath>
+                        <xpath expr="//field[@name='cost_sheet_line_ids']/tree/field[@name='discount']" position="attributes">
+                            <attribute name="width">150px</attribute>.
+                        </xpath>
+                        <xpath expr="//field[@name='cost_sheet_line_ids']/tree/field[@name='shipping_cost']"
+                               position="attributes">
+                            <attribute name="width">150px</attribute>.
+                        </xpath>
+                        <xpath expr="//field[@name='cost_sheet_line_ids']/tree/field[@name='unit_cost']" position="attributes">
+                            <attribute name="width">150px</attribute>.
+                        </xpath>
+                        <xpath expr="//field[@name='cost_sheet_line_ids']/tree/field[@name='total_cost']" position="attributes">
+                            <attribute name="width">150px</attribute>.
+                        </xpath>
+                        <xpath expr="//field[@name='cost_sheet_line_ids']/tree/field[@name='price_currency']"
+                               position="attributes">
+                            <attribute name="width">150px</attribute>.
+                        </xpath>
+                        <xpath expr="//field[@name='cost_sheet_line_ids']/tree/field[@name='margin']" position="attributes">
+                            <attribute name="width">150px</attribute>.
+                        </xpath>
+                        <xpath expr="//field[@name='cost_sheet_line_ids']/tree/field[@name='unit_price']" position="attributes">
+                            <attribute name="width">100px</attribute>.
+                        </xpath>
+                        <xpath expr="//field[@name='cost_sheet_line_ids']/tree/field[@name='total_price']"
+                               position="attributes">
+                            <attribute name="width">150px</attribute>.
+                        </xpath>
+                        <xpath expr="//field[@name='cost_sheet_line_ids']/tree/field[@name='rounding']" position="attributes">
+                            <attribute name="width">150px</attribute>.
+                        </xpath>
+                        <xpath expr="//field[@name='cost_sheet_line_ids']/tree/field[@name='company_discount']"
+                               position="attributes">
+                            <attribute name="width">150px</attribute>.
+                        </xpath>
+                    </field>
+                </record> -->
+    </data>
+</odoo>
+                             
+   
+                    

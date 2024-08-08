@@ -1,0 +1,18 @@
+<odoo>
+    <data>
+        <record id="mail_template_purchase_approval" model="mail.template">
+            <field name="name">Purchase approval Request</field>
+            <field name="model_id" ref="zb_transaction_approval.model_purchase_order"/> 
+            <field name="subject">Purchase Approval Request</field>
+            <field name="email_from">{{user.email}}</field> 
+            <field name="body_html">
+                <![CDATA[
+                    <p>Hi,</p>
+                    <p>The below document came for approval,Kindly approve it.</p>
+                    <p><a style="background-color: #3498db; color: white; padding: 10px 20px; text-decoration: none; display: inline-block; border-radius: 5px;" 
+                    t-attf-href="/web/login?&amp;redirect=/web?#id={{ object.id }}&amp;view_type=form&amp;model=purchase.order">View Purchase Order</a></p>
+                ]]>
+            </field>
+        </record>
+    </data>
+</odoo>

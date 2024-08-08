@@ -1,0 +1,1 @@
+from . import sale_order,purchase_order,account_move,account_payment,res_config_settings

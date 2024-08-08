@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--    create tree of ifram menu model-->
+    <record id="view_iframe_tree" model="ir.ui.view">
+        <field name="name">Iframe View tree</field>
+        <field name="model">iframe.iframe</field>
+        <field name="arch" type="xml">
+            <tree string="Ifram">
+                <field name="name"/>
+                <field name="parent_menu_id"/>
+                <field name="iframe_url"/>
+                <field name="allowed_user" widget="many2many_tags"/>
+                <field name="web_icon_image"/>
+
+            </tree>
+        </field>
+    </record>
+
+    <!--    create form view to ifram menu model-->
+    <record id="view_iframe_id_menu" model="ir.ui.view">
+        <field name="name">Iframe View</field>
+        <field name="model">iframe.iframe</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="parent_menu_id"/>
+                        <field name="iframe_url" widget="url"/>
+                        <field name="web_icon_image"/>
+                        <field name="allowed_user" widget="many2many_tags"/>
+                    </group>
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <!--create window action -->
+    <record id="view_ifrme_action" model="ir.actions.act_window">
+        <field name="name">Iframe</field>
+        <field name="res_model">iframe.iframe</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <!--    create menu item -->
+    <menuitem name="Iframe Menu" id="menu_iframe_action" action="view_ifrme_action" sequence="-1"
+              groups="ifram_menue.requesitoin_user"
+              web_icon="ifram_menue,static/description/icon.png"/>
+
+</odoo>

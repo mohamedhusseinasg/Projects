@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record model="ir.ui.view" id="view_purchase_order_form_inherit">
+        <field name="name">view.purchase.order.form.inherit</field>
+        <field name="model">purchase.order</field>
+        <field name="inherit_id" ref="purchase.purchase_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='partner_ref']" position="after">
+                <field name="po_product_approvals" invisible="1"/>
+                <field name="product_double_validation_amount" invisible="1"/>
+                <field name="is_true" invisible="1"/>
+            </xpath>
+            <xpath expr="//button[@name='print_quotation']" position="after">
+                <button name="action_approval" type="object" string="Send for Approval"
+                        invisible="is_true ==False or is_approved == True"
+                        class="btn-primary"/>
+                <button name="action_approve" type="object" string="Approve"
+                        groups="zb_transaction_approval.group_purchase_orders_approver"
+                        invisible="approval_send == False or is_approved == True or state == 'cancel'"
+                        class="btn-primary"/>
+                <!--                        invisible="approval_send == False or is_approved == True or state == 'cancel'"-->
+            </xpath>
+            <xpath expr="//button[@name='button_confirm'][2]" position="attributes">
+                <attribute name="invisible">is_true != False  or is_approved == True  or approval_send == True </attribute>
+<!--                or is_approved == False-->
+            </xpath>
+
+            <xpath expr="//field[@name='origin']" position="after">
+                <field name="is_approved" invisible="1" readonly="1"/>
+                <!-- <field name="approved_by"/> -->
+                <field name="approve_on" readonly="1"/>
+                <field name="approval_send" invisible="1"/>
+                <field name="approved_by" readonly="1"/>
+            </xpath>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_purchase_order_quotation_search_inherit">
+        <field name="name">view.purchase.order.quotation.search.inherit</field>
+        <field name="model">purchase.order</field>
+        <field name="inherit_id" ref="purchase.view_purchase_order_filter"/>
+        <field name="arch" type="xml">
+            <xpath expr="//filter[@name='order_date']" position="after">
+                <filter name="group_by_approved" string="Approved" context="{'group_by':'is_approved'}"/>
+                <filter name="group_by_approval_send" string="Send for Approval"
+                        context="{'group_by':'approval_send'}"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="view_purchase_order_search_inherit">
+        <field name="name">view.purchase.order.search.inherit</field>
+        <field name="model">purchase.order</field>
+        <field name="inherit_id" ref="purchase.purchase_order_view_search"/>
+        <field name="arch" type="xml">
+            <xpath expr="//filter[@name='order_date']" position="after">
+                <filter name="group_by_approved" string="Approved" context="{'group_by':'is_approved'}"/>
+                <filter name="group_by_approval_send" string="Send for Approval"
+                        context="{'group_by':'approval_send'}"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

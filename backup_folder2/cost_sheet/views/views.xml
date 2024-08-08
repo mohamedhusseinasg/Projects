@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_cost_sheet_tree" model="ir.ui.view">
+            <field name="name">cost.sheet.tree</field>
+            <field name="model">cost.sheet</field>
+            <field name="arch" type="xml">
+                <tree string="Cost Sheets">
+                    <field name="sequence"/>
+                    <field name="date"/>
+                    <field name="partner_id"/>
+                    <field name="opportunity_id"/>
+                    <field name="quotation_currency"/>
+
+                </tree>
+            </field>
+        </record>
+        <record id="view_cost_sheet_form" model="ir.ui.view">
+            <field name="name">cost.sheet.form</field>
+            <field name="model">cost.sheet</field>
+            <field name="arch" type="xml">
+                <form string="Cost Sheet">
+
+                    <header>
+                        <button string="Create Quotation" type="object" class="oe_highlight" icon="fa-plus"
+                                name="action_open_quotation"/>
+                        <!-- <button string="Confirm" type="object" class="oe_highlight" icon="fa-plus"
+                              name="action_confirm" states="draft,confirmed"/>
+                        <button string="Cancle" type="object" special="cancel" class="oe_link"
+                              name="action_cancle" states="draft,confirmed"/> -->
+                        <field name="status" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <button class="oe_stat_button" icon="fa-dollar" type="object" name="get_qutation">
+                                <field string="Quotations" name="quotation_count" widget="statinfo"/>
+                            </button>
+                        </div>
+                        <div class="oe_title">
+                            <h1>
+                                <field name="sequence" readonly="1"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="opportunity_id"/>
+                                <field name="partner_id"/>
+                                <field name="date"/>
+                            </group>
+                            <group>
+                                <field name="quotation_currency"/>
+                                <field name="price_currency" invisible="1"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Cost Sheet Lines">
+                                <field name="cost_sheet_line_ids" x_width="5000px">
+                                    <tree string="costsheetlines" editable="bottom">
+                                        <field name="product_id" x_width="500000000000"/>
+                                        <field name="product_quantity" readonly="1"/>
+                                        <field name="qty"/>
+                                        <field name="initial_cost_currency"/>
+                                        <field name="initial_cost"/>
+                                        <field name="landed_cost"/>
+                                        <field name="cost_currency"/>
+                                        <field name="discount" widget="percentage" options="{'precision': 2}"/>
+                                        <field name="shipping_cost" widget="percentage" options="{'precision': 2}"/>
+                                        <!-- <field name="landed_cost"/> -->
+                                        <field name="unit_cost" widget="monetary" options="{'currency_field': 'cost_currency'}"/>
+
+                                        <field name="total_cost" widget="monetary" options="{'currency_field': 'cost_currency'}"/>
+                                        <field name="price_currency"/>
+<!--                                        <field name="margin_unit" invisible='True'/>-->
+                                        <field name="margin" force_save="1" widget="percentage"
+                                               options="{'precision': 2}"/>
+                                        <field name="company_discount" widget="percentage" options="{'precision': 2}"/>
+<!--                                        <field name="absolute_discount" invisable='True'/>-->
+                                        <field name="rounding"/>
+                                        <field name="unit_price" widget="monetary" options="{'currency_field': 'price_currency'}"/>
+                                        <field name="total_price" widget="monetary" options="{'currency_field': 'price_currency'}"/>
+                                    </tree>
+                                </field>
+                                <group name="note_group" col="6" class="mt-2 mt-md-0">
+                                    <group class="oe_subtotal_footer oe_right" colspan="2" string=" Total Price"
+                                           name="Final Total">
+                                        <field name="final_total" widget="monetary" options="{'currency_field': 'price_currency'}"
+                                               string="Final Total"
+                                               style="font-weight: bold; font-size: 1.2em;" nolabel="1" colspan="1"
+                                               readonly="1"/>
+                                    </group>
+
+                                    <group class="oe_subtotal_footer oe_right" colspan="2" string="Total Discount"
+                                           name="Total Discount">
+                                        <field name="total_discount"  widget="monetary" options="{'currency_field': 'price_currency'}"
+                                               string="Total Discount"
+                                               style="font-weight: bold; font-size: 1.2em;" nolabel="1" colspan="1"
+                                               readonly="1"/>
+                                    </group>
+                                    <group class="oe_subtotal_footer oe_right" colspan="2" string="Total Margin"
+                                           name="Total Margin">
+                                        <field name="margin_total"  widget="monetary" options="{'currency_field': 'price_currency'}"
+                                               string="Total Discount"
+                                               style="font-weight: bold; font-size: 1.2em;" nolabel="1" colspan="1"
+                                               readonly="1"/>
+                                    </group>
+                                    <div class="clearfix"/>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="activity_ids" widget="mail_activity"/>
+                        <field name="message_ids" widget="mail_thread" options="{'post_refresh': 'recipients'}"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+        <record id="view_cost_sheet_action" model="ir.actions.act_window">
+            <field name="name">Cost Sheets</field>
+            <field name="res_model">cost.sheet</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <record model="ir.sequence" id="cost_sheet_sequence">
+            <field name="name">cost.sheet</field>
+            <field name="code">cost.sheet</field>
+            <field name="active">TURE</field>
+            <field name="prefix">CS</field>
+            <field name="padding">3</field>
+            <!--  <field name="suffix"></field>  -->
+            <!--  <field name="number_increment">1</field>  -->
+        </record>
+        <menuitem name="Cost Sheet" id="menu_cost_sheet_action_crm" parent="crm.crm_menu_root"
+                  action="view_cost_sheet_action" sequence="6"/>
+        <menuitem name="Cost Sheet" id="menu_cost_sheet_action_sale" parent="sale.sale_menu_root"
+                  action="view_cost_sheet_action" sequence="50"/>
+
+    </data>
+</odoo>
+

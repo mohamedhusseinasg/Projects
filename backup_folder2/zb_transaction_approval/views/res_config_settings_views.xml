@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="res_config_settings_view_form_product" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.product</field>
+        <field name="model">res.config.settings</field>
+        <field name="priority" eval="30"/>
+        <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form" position="inside">
+                <app data-string="Products" string="Products" name="Products">
+                    <block title="Product orders" name="product_setting_container">
+                        <setting id="po_product_approval"
+                                 company_dependent="1"
+                                 help="Request managers to approve products above a minimum amount">
+                            <field name="po_product_approval"/>
+                            <div class="content-group"
+                                invisible="not po_product_approval">
+                                <div class="row mt16">
+                                    <label for="product_double_validation_amount" class="col-lg-4 o_light_label"/>
+                                    <field name="product_double_validation_amount" force_save="1"/>
+                                </div>
+                            </div>
+                        </setting>
+                    </block>
+                </app>
+            </xpath>
+        </field>
+    </record>
+    <record id="action_product_configuration" model="ir.actions.act_window">
+        <field name="name">Settings</field>
+        <field name="res_model">res.config.settings</field>
+        <field name="view_mode">form</field>
+        <field name="target">inline</field>
+        <field name="context">{'module' : 'zb_product_approve', 'bin_size': False}</field>
+    </record>
+
+
+</odoo>

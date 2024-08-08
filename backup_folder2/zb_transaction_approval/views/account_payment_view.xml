@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record model="ir.ui.view" id="view_account_payment_form_inherit">
+        <field name="name">view.account.payment.inherit</field>
+        <field name="model">account.payment</field>
+        <field name="inherit_id" ref="account.view_account_payment_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//button[@name='action_post']" position="before">
+            	<button name="action_approval" type="object" string="Send for Approval" invisible = "approval_send == True or state == 'cancel'" class="btn-primary"
+            	/>
+            	<button name="action_approve" type="object" string="Approve" groups="zb_transaction_approval.group_payment_approver"
+            	 invisible =  "approval_send == False or is_approved == True or state == 'cancel'" class="btn-primary"/>  
+            </xpath>
+            <xpath expr="//button[@name='action_post']" position="attributes">
+            	<attribute name="invisible">state != 'draft' or is_approved == False</attribute>
+            </xpath>  
+            
+             <xpath expr="//field[@name='partner_bank_id']" position="after">
+            	<field name="is_approved" readonly = "1" invisible="1"/>
+            	<field name="approved_by" readonly = "1"/>
+            	<field name="approve_on" readonly = "1"/>
+            	<field name="approval_send" invisible="True" />
+            </xpath> 
+        </field>
+     </record>
+      <record model="ir.ui.view" id="view_account_payment_search_inherit">
+        <field name="name">view.account.payment.search.inherit</field>
+        <field name="model">account.payment</field>
+        <field name="inherit_id" ref="account.view_account_payment_search"/>
+        <field name="arch" type="xml">
+	        <xpath expr="//filter[@name='company']" position="after">
+	        	<filter name="group_by_approved" string="Approved" context="{'group_by':'is_approved'}"/>
+	        	<filter name="group_by_approval_send" string="Send for Approval" context="{'group_by':'approval_send'}"/>
+	        </xpath>
+    	 </field>
+    </record> 
+</odoo>

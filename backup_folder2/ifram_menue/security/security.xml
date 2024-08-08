@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record model="ir.module.category" id="purch_reque">
+        <field name="name">Iframe</field>
+        <field name="description">Helps you manage Purchase Requesitoin</field>
+        <field name="sequence">10</field>
+    </record>
+    <record id="requesitoin_user" model="res.groups">
+        <field name="name">Iframe Menu/user</field>
+        <field name="category_id" ref="purch_reque"/>
+    </record>
+</odoo>  

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+		<record id="category_approvers" model="ir.module.category">
+			<field name="name">Approvers</field>
+			<field name="description">Category for all approver groups</field>
+			<field name="sequence">1</field>
+		</record>
+		<record id="group_sale_order_approver" model="res.groups">
+			<field name="name">Sale Approver</field>
+			<field name="category_id" ref="zb_transaction_approval.category_approvers"/>
+		</record>
+		<record id="group_purchase_orders_approver" model="res.groups">
+			<field name="name">Purchase Approver</field>
+			<field name="category_id" ref="zb_transaction_approval.category_approvers"/>
+		</record>
+		<record id="group_invoice_approver" model="res.groups">
+			<field name="name">Account Entries Approver</field>
+			<field name="category_id" ref="zb_transaction_approval.category_approvers"/>
+		</record>
+			<record id="group_payment_approver" model="res.groups">
+			<field name="name">Payment Approver</field>
+			<field name="category_id" ref="zb_transaction_approval.category_approvers"/>
+		</record>
+		
+	</data>
+</odoo>
+		
