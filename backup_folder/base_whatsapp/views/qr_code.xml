@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="qr_code_generate_view_form" model="ir.ui.view">
+        <field name="name">qr_code_generate_view_form</field>
+        <field name="model">qr.code.generate</field>
+        <field name="arch" type="xml">
+            <form string="QRcode" create="false">
+                <header>
+                    <button string="Generate_qr_code" name="generate_qr_code" type="object" class="oe_highlight" />
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="state" readonly="1"/>
+                        </group>
+                        <group>
+                            <field name="qr_code" widget="image" readonly="1"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="qr_code_generate_view_tree" model="ir.ui.view">
+        <field name="name">qr.code.generate.view.tree</field>
+        <field name="model">qr.code.generate</field>
+        <field name="arch" type="xml">
+            <tree string="QRcode" create="false">
+                <field name="state" />
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="qr_code_generate_action">
+        <field name="name">Qrcode</field>
+        <field name="res_model">qr.code.generate</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Click to add new record.
+            </p>
+        </field>
+    </record>
+</odoo>

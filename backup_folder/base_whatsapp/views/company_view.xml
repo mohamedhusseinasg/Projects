@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="view_company_form" model="ir.ui.view">
+        <field name="name">res.company.form</field>
+        <field name="model">res.company</field>
+        <field name="inherit_id" ref="base.view_company_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='branches']" position="after">
+                <page string="Whatsapp Configuration" name="whatsapp">
+
+                    <group style="width:1300px">
+                        <group style="width:550px">
+                            <field name="whatsapp_api_url"/>
+                            <field name="whatsapp_api_instance"/>
+                            <field name="daily_message_number"/>
+                        </group>
+                        <group style="width:600px">
+                            <field name="whatsapp_api_token" password="True"/>
+                            <field name="whatsapp_api_authentication" invisible="1"/>
+                            <field name="message_counter"/>
+                            <div class="o_row">
+                                <button name="action_generate_token" type="object" string="Generate Token" class="btn-link mb-1 px-0" icon="fa-refresh"/>
+                            </div>
+                        </group>
+                    </group>
+                    <group style="width:1300px">
+                        <group style="width:550px">
+                            <label for="whatsapp_state"/>
+                            <div class="o_row">
+                                <field name="whatsapp_state" readonly="1" force_save="1"/>
+                            </div>
+                            <div class="o_row">
+                                <button name="action_whatsapp_get_qrcode" type="object" string="Opene Session" class="btn-link mb-1 px-0"/>
+                                <button name="action_whatsapp_close_session" type="object" string="Close Session" class="btn-link mb-1 px-0"/>
+                                <button name="action_whatsapp_get_session_info" type="object" string="Get Session State" class="btn-link mb-1 px-0" icon="fa-refresh"/>
+                            </div>
+                        </group>
+                        <group style="width:650px">
+                            <field name="whatsapp_secret_key"/>
+                            <field name="whatsapp_webhook"/>
+                        </group>
+                    </group>
+                    <group string="WhatsApp Notifications" name="whatsapp_messages">
+                        <field name="wa_run_sub_message" />
+                    </group>
+
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
