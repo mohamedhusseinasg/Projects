@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+        <record id="auto_action_subscriptions_done_scheduler" model="ir.cron">
+			<field name="interval_type">days</field>
+			<field name="name">Scheduler for Auto Diet Meals Subscriptions Done</field>
+			<field name="numbercall">-1</field>
+			<field name="priority">5</field>
+			<field name="doall">False</field>
+			<field name="active">True</field>
+			<field name="interval_number">1</field>
+			<field name="model_id" ref="model_diet_meals_subscriptions" />
+			<field name="state">code</field>
+			<field name="code">model.auto_action_subscriptions_done()</field>
+		</record>
+
+		<record id="auto_action_subscriptions_msg_before_done" model="ir.cron">
+			<field name="interval_type">days</field>
+			<field name="name">Scheduler for Auto Diet Meals Subscriptions Msg Before Done</field>
+			<field name="numbercall">-1</field>
+			<field name="priority">5</field>
+			<field name="doall">False</field>
+			<field name="active">True</field>
+			<field name="interval_number">1</field>
+			<field name="model_id" ref="model_diet_meals_subscriptions" />
+			<field name="state">code</field>
+			<field name="code">model.auto_action_subscriptions_msg_before_done()</field>
+		</record>
+
+		<record id="auto_action_freeze_subscriptions" model="ir.cron">
+			<field name="interval_type">days</field>
+			<field name="name">Scheduler for Auto Freeze Diet Meals Subscriptions</field>
+			<field name="numbercall">-1</field>
+			<field name="priority">5</field>
+			<field name="doall">False</field>
+			<field name="active">True</field>
+			<field name="interval_number">1</field>
+			<field name="model_id" ref="model_diet_subscriptions_freeze" />
+			<field name="state">code</field>
+			<field name="code">model.auto_action_freeze_subscriptions()</field>
+		</record>
+
+
+		<record id="auto_action_confirm_before_two_days" model="ir.cron">
+			<field name="interval_type">days</field>
+			<field name="name">Scheduler for Auto Diet Confirm Order Before Two Days</field>
+			<field name="numbercall">-1</field>
+			<field name="priority">5</field>
+			<field name="doall">False</field>
+			<field name="active">True</field>
+			<field name="interval_number">1</field>
+			<field name="model_id" ref="model_diet_order" />
+			<field name="state">code</field>
+			<field name="code">model.auto_action_confirm_before_two_days()</field>
+		</record>
+
+    </data>
+</odoo>

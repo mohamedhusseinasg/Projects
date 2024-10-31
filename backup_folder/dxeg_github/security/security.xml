@@ -1,0 +1,34 @@
+<odoo>
+    <data noupdate="0">
+        <record id="module_category_dxeg_github" model="ir.module.category">
+            <field name="name">Github</field>
+            <field name="description">Github integration</field>
+            <field name="sequence">15</field>
+        </record>
+
+        <record id="group_dxeg_github_user" model="res.groups">
+            <field name="name">User</field>
+            <field name="category_id" ref="dxeg_github.module_category_dxeg_github"/>
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+        </record>
+        <record id="group_dxeg_github_manager" model="res.groups">
+            <field name="name">Administrator</field>
+            <field name="category_id" ref="dxeg_github.module_category_dxeg_github"/>
+            <field name="implied_ids" eval="[(4, ref('dxeg_github.group_dxeg_github_user'))]"/>
+        </record>
+        
+         <!-- Repair Requests Rules -->
+        <record id="dxeg_github_user_rule" model="ir.rule">
+            <field name="name">User</field>
+            <field name="model_id" ref="model_dxeg_github"/>
+            <field name="groups" eval="[(4, ref('dxeg_github.group_dxeg_github_user'))]"/>
+            <field name="domain_force">[('create_uid', '=',user.id)]</field>
+        </record>
+        <record id="dxeg_github_manager_rule" model="ir.rule">
+            <field name="name">Manager</field>
+            <field name="model_id" ref="model_dxeg_github"/>
+            <field name="groups" eval="[(4, ref('dxeg_github.group_dxeg_github_manager'))]"/>
+            <field name="domain_force">[(1,'=',1)]</field>
+        </record>
+    </data>
+</odoo>
