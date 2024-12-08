@@ -1,0 +1,23 @@
+{
+    'name': 'Loan Management',
+    'version': '1.0',
+    'summary': '',
+    'description': """ """,
+    'category': '',
+    'author': 'rt',
+    'depends': ['base', 'hr', 'hr_payroll'],
+    'data': ['security/groups.xml',
+             'security/ir.model.access.csv',
+             'views/loan_menu_item.xml',
+             'views/loan_request_action.xml',
+             'views/loan_views.xml',
+             'data/sequence.xml',
+             'views/hr_employee.xml',
+             'views/payslip_loan_rule.xml',
+             'views/payslip_view_inherit.xml',
+             'report/report.xml',
+             'report/loan_request_report.xml'
+             ],
+    'installable': True,
+    'auto_install': False,
+}

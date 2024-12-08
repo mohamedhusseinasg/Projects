@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_dxeg_github_user,dxeg.github.user,model_dxeg_github,dxeg_github.group_dxeg_github_user,1,1,1,1
+access_ir_config_parameter_dxeg_github_user,config_parameter_dxeg_github_user,base.model_ir_config_parameter,dxeg_github.group_dxeg_github_user,1,1,1,1
