@@ -1,0 +1,12 @@
+<odoo>
+
+     <record id="report_loan_request" model="ir.actions.report">
+            <field name="name">approved request loan pdf</field>
+            <field name="model">loan.request</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">loan_management.report_loan_pdf</field>
+            <field name="report_file">loan_management.loan_request_report.xml</field>
+            <field name="binding_model_id" ref="model_loan_request"/>
+            <field name="binding_type">report</field>
+        </record>
+</odoo>
