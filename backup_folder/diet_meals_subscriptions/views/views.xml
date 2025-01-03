@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="seq_diet_meals_subscriptions" model="ir.sequence">
+        <field name="name">diet.meals subscriptions</field>
+        <field name="code">diet.meals.subscriptions</field>
+        <field name="prefix">DIT</field>
+        <field name="padding">3</field>
+        <field name="company_id" eval="False"/>
+    </record>
+
+    <record id="diet_meals_subscriptions_view_form" model="ir.ui.view">
+        <field name="name">diet.meals.subscriptions.view.form</field>
+        <field name="model">diet.meals.subscriptions</field>
+        <field name="arch" type="xml">
+            <form string="Diet Meals Subscriptions">
+                <header>
+                    <field name="allowed_freeze" invisible="1"/>
+                    <button name="create_invoice" invisible="state!='draft'"  groups="account.group_account_invoice" string="Create Invoice" type="object" class="oe_highlight"/>
+                    <button name="action_subscriptions_run" invisible="state!='invoiced'"   string="Run subscriptions" type="object" class="oe_highlight"/>
+                    <button name="action_subscriptions_done" invisible="state!='in_progrees'"  string="Done subscriptions" type="object" class="oe_highlight"/>
+                    <button name="action_subscriptions_cancel" groups="diet_meals_subscriptions.group_allow_cancel_subscriptions" string="Cancel subscriptions" type="object" />
+                    <button name="action_subscriptions_unfreeze"  invisible="state!='freeze'" string="unfreeze subscriptions" type="object" />
+                    <field name="state" widget="statusbar" statusbar_visible="draft,invoiced,in_progrees,freeze,done,cancel"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="view_invoice" string="View Invoice" invisible="invoice_id == False"  groups="account.group_account_invoice" type="object" class="oe_stat_button" icon="fa-pencil-square-o"/>
+                        <button name="action_subscriptions_freeze" invisible="allowed_freeze == False or allowed_freeze_days == 0"  type="object" class="oe_stat_button" icon="fa-plane">
+                            <div class="o_form_field o_stat_info">
+                                <span class="o_stat_value">
+                                    <field name="allowed_freeze_days"/>
+                                    <span style="padding:0px 5px 0px 5px;" class="o_stat_text">Freeze</span>
+                                </span>
+                            </div>
+                        </button>
+                    </div>
+                    <field name="image_128" widget='image' class="oe_avatar"/>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="partner_id" />
+                            <field name="minDate" invisible="0"/>
+                            <field name="start_date" />
+                            <field name="end_date" />
+                        </group>
+                        <group>
+                            <field name="package_id" options="{'no_create': True}" />
+                            <field name="number_of_days" />
+                            <field name="number_off_days" string="Off Days" invisible="0" />
+                            <field name="off_days_ids"  invisible="number_off_days ==0" widget="many2many_tags" options="{'no_create': True,'no_create_edit': True, 'no_open': True}"/>
+                            <field name="invoice_id" readonly="1" invisible="1" />
+                            <field name="company_id" readonly="1" invisible="1"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page name="orders" string="Orders">
+                            <field name="order_ids" nolabel="1">
+                                <tree editable="bottom">
+                                    <field name="date" />
+                                    <field name="state" />
+                                    <field name="order_id" readonly="1" force_save="1" widget="sale_order_many2one" />
+                                </tree>
+                                <form>
+                                    <header>
+                                        <button string="Confirm" invisible="state!='draft'"  name="action_confirm" type="object" class="oe_highlight"/>
+                                        <button string="Cancel" invisible="state!='draft'"   name="action_cancel" type="object" />
+                                        <field name="state" widget="statusbar" statusbar_visible="draft,confirm,cancel"/>
+                                    </header>
+                                    <sheet>
+                                        <group>
+                                            <group>
+                                                <field name="partner_id" />
+                                                <field name="date" />
+                                            </group>
+                                            <group>
+                                                <field name="package_id" options="{'no_create': True}" />
+                                                <field name="order_id" readonly="1" force_save="1" widget="sale_order_many2one" />
+                                            </group>
+                                        </group>
+                                        <notebook>
+                                            <page name="order_lines" string="Order Lines">
+                                                <field name="line_ids" nolabel="1">
+                                                    <tree editable="top" create="false">
+                                                        <field name="categ_ids" widget="many2many_tags" readonly="1" />
+                                                        <field name="product_filter_ids" invisible="1" />
+                                                        <field name="product_ids" widget="many2many_tags" context="{'default_package_ok':1}" />
+                                                        <field name="quantity" readonly="1"/>
+                                                    </tree>
+                                                </field>
+                                            </page>
+                                        </notebook>
+                                    </sheet>
+                                </form>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+                <!-- <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="activity_ids" widget="mail_activity"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div> -->
+            </form>
+        </field>
+    </record>
+
+    <record id="diet_meals_subscriptions_view_tree" model="ir.ui.view">
+        <field name="name">diet.meals.subscriptions.view.tree</field>
+        <field name="model">diet.meals.subscriptions</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="partner_id" />
+                <field name="start_date" />
+                <field name="end_date" />
+                <field name="package_id"/>
+                <field name="product_id" />
+                <field name="invoice_id" readonly="1" />
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="diet_meals_subscriptions_view_kanban" model="ir.ui.view">
+        <field name="name">diet.meals.subscriptions.view.kanban</field>
+        <field name="model">diet.meals.subscriptions</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="state" class="o_kanban_mobile">
+                <field name="name"/>
+                <field name="partner_id" />
+                <field name="start_date" />
+                <field name="end_date" />
+                <field name="product_id" />
+                <field name="package_id"/>
+                <field name="invoice_id" readonly="1" />
+                <field name="state"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_card oe_kanban_global_click">
+                            <div class="o_kanban_record_top">
+                                <div class="o_kanban_record_headings">
+                                    <strong class="o_kanban_record_title">
+                                        <h3>
+                                            <field name="partner_id" />
+                                        </h3>
+                                    </strong>
+                                </div>
+                                <strong>
+                                    <field name="package_id" />
+                                </strong>
+                            </div>
+                            <div class="container o_kanban_card_content">
+                                <div class="row">
+                                    <div class="col-12 o_kanban_primary_right">
+                                        <div class="row">
+                                            <div class="col-5">
+                                                Start Date
+                                            </div>
+                                            <div class="col-7">
+                                                <field name="start_date" />
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-5">
+                                                End Date
+                                            </div>
+                                            <div class="col-7">
+                                                <field name="end_date" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="o_kanban_record_bottom">
+                                <div class="oe_kanban_bottom_left text-muted">
+                                    <field name="invoice_id" />
+                                </div>
+                                <div class="oe_kanban_bottom_right">
+                                    <span class="float-right text-right">
+                                        <field name="state" widget="label_selection" options="{'classes': {'draft': 'default','inprogress': 'warning','done': 'success'}}" />
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="diet_meals_subscriptions_action" model="ir.actions.act_window">
+        <field name="name">Diet Meals Subscriptions</field>
+        <field name="res_model">diet.meals.subscriptions</field>
+        <field name="view_mode">kanban,form,tree</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No data yet!
+            </p>
+            <p>
+                Create a new card
+            </p>
+        </field>
+    </record>
+
+
+    <record id="subscription_template_action" model="ir.actions.act_window">
+        <field name="name">Subscription Template</field>
+        <field name="res_model">subscription.template</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No data yet!
+            </p>
+            <p>
+                Create a new Template
+            </p>
+        </field>
+    </record>
+
+
+    <record id="sale_order_form_view_inherited" model="ir.ui.view">
+        <field name="name">sale_order.view.form.inherit</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='partner_id']" position="after">
+                <field name="package_id"/>
+            </xpath>
+
+        </field>
+    </record>
+
+
+</odoo>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <menuitem id="diet_meals_subscriptions_root" name="Diet Meals Subscriptions" web_icon="diet_meals_subscriptions,static/description/icon.png" sequence="10" />
+
+    <menuitem id="diet_meals_subscriptions_menu" name="Diet Meals Subscriptions" action="diet_meals_subscriptions_action" parent="diet_meals_subscriptions_root" sequence="20"/>
+
+
+    <menuitem id="products_menu" name="Products" action="product_product_action_sellable" parent="diet_meals_subscriptions_root" sequence="40"/>
+
+    <menuitem id="kitchen_menu" name="Kitchen" parent="diet_meals_subscriptions_root" sequence="99"/>
+
+    <menuitem id="schedual_menu" name="Schedule Menu" action="menu_schedual_action" parent="kitchen_menu" sequence="0"/>
+
+    <menuitem id="kitchen_meals_menu" name="Meals" parent="kitchen_menu" action="kitchen_meals_action" sequence="1"/>
+
+    <menuitem id="kitchen_menu" name="Kitchen" parent="diet_meals_subscriptions_root" sequence="99"/>
+
+    <menuitem id="config_menu" name="Configuration" parent="diet_meals_subscriptions_root" sequence="100"/>
+
+    <menuitem id="packages_menu" name="Packages" action="diet_packages_action" parent="config_menu" sequence="10"/>
+
+    <menuitem id="subscription_template_menu" name="Subscription Template"
+     action="subscription_template_action" parent="config_menu" sequence="20"/>
+    <menuitem id="category_menu" name="Category" action="diet_category_action" parent="config_menu" sequence="30"/>
+
+    <!-- <menuitem id="kitchen_dinner_meal_menu" name="Dinner Mael" parent="kitchen_menu" action="kitchen_dinner_meal_action" sequence="2"/>
+
+    <menuitem id="kitchen_launch_meal_menu" name="Launch Mael" parent="kitchen_menu" action="kitchen_launch_meal_action" sequence="3"/>
+
+    <menuitem id="kitchen_snacks_meal_menu" name="Snacks Mael" parent="kitchen_menu" action="kitchen_snacks_meal_action" sequence="4"/> -->
+
+    <!-- <menuitem id="kitchen_schedule_menu" name="Schedule Mael" parent="kitchen_menu" action="kitchen_meal_day_action" sequence="0"/> -->
+
+</odoo>

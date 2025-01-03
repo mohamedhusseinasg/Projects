@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="diet_packages_view_form" model="ir.ui.view">
+        <field name="name">diet.packages.view.form</field>
+        <field name="model">diet.packages</field>
+        <field name="arch" type="xml">
+            <form string="Diet Packages">
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                    </div>
+                    <field name="image" widget='image' class="oe_avatar"/>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" placeholder="Name"/>
+
+                        </h1>
+                    </div>
+                    <field name="description" placeholder="Description"/>
+
+                    <group>
+                        <group>
+                            <label for="number_of_days" />
+                            <div class="o_row">
+                                <field name="number_of_days" />
+                                <field name="template_id"/>
+                            </div>
+                            <field name="allowed_freeze" />
+                            <!--                            <field name="freeze" attrs="{'invisible': [('allowed_freeze', '=', False)],'required': [('allowed_freeze', '!=', False)]}"/>-->
+                            <field name="freeze" invisible="allowed_freeze == False" required="allowed_freeze != False"/>
+                            <field name="number_off_days" />
+                        </group>
+                        <group>
+                            <field name="product_id" context="{'default_package_ok':1}"/>
+                            <field name="price" />
+                            <field name="categ_ids" options="{'color_field': 'color'}" widget="many2many_tags" />
+                        </group>
+                    </group>
+                    <!-- <group string="Categories">
+                        <field name="package_line_ids" nolabel="1">
+                            <tree editable="bottom">
+                                <field name="categ_ids" widget="many2many_tags" />
+                                <field name="use_in_diet_meal" />
+                            </tree>
+                        </field>
+                    </group> -->
+                </sheet>
+                <!-- <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="activity_ids" widget="mail_activity"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div> -->
+            </form>
+        </field>
+    </record>
+
+    <record id="diet_packages_view_tree" model="ir.ui.view">
+        <field name="name">diet.packages.view.list</field>
+        <field name="model">diet.packages</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name" />
+                <field name="description" />
+                <field name="number_of_days" />
+                <field name="product_id" />
+                <field name="price" />
+                <field name="package_line_ids" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="diet_packages_action" model="ir.actions.act_window">
+        <field name="name">Diet Packages</field>
+        <field name="res_model">diet.packages</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="diet_packages_view_tree"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No data yet!
+            </p>
+            <p>
+                Create a new package
+            </p>
+        </field>
+    </record>
+</odoo>

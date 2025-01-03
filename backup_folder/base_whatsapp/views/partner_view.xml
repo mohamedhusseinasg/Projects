@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="view_partner_form_whatsapp" model="ir.ui.view">
+        <field name="name">res.partner.whatsapp.buttons</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//sheet" position="before">
+                <header>
+                    <!-- <button name="%(action_base_send_whatsapp_message)d" icon="fa-whatsapp" string="Whatsapp" class="oe_highlight" type='action'/> -->
+                    <button name="send_id_message" icon="fa-whatsapp" string="Send Subscription ID" class="oe_highlight" type='object' />
+                </header>
+            </xpath>
+            <field name="vat" position="after">
+                <field name="wa_subscription_reg_message" />
+            </field>
+            <!-- <xpath expr="//div[@name='button_box']" position="inside">
+                <button type="object" class="oe_stat_button" icon="fa-whatsapp" name="action_base_whatsapp" groups="base_whatsapp.group_whatsapp_user">
+                    <div class="o_form_field o_stat_info">
+                        <span class="o_stat_value">
+                            <field name="whatsapp_count"/>
+                        </span>
+                        <span class="o_stat_text">WhatsApp</span>
+                    </div>
+                </button>
+            </xpath> -->
+        </field>
+    </record>
+
+    <record id="send_id_partner" model="ir.actions.server">
+        <field name="name">Send Subscription ID</field>
+        <field name="type">ir.actions.server</field>
+        <field name="model_id" ref="model_res_partner"/>
+        <field name="binding_model_id" ref="model_res_partner"/>
+        <field name="state">code</field>
+        <field name="code">records.send_id_message()</field>
+    </record>
+
+</odoo>

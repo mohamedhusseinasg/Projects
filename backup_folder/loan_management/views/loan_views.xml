@@ -1,0 +1,114 @@
+<odoo>
+    <data>
+
+        <record id="view_loan_request_form" model="ir.ui.view">
+            <field name="name">loan.request.form</field>
+            <field name="model">loan.request</field>
+            <field name="arch" type="xml">
+                <form string="Loan Request">
+                    <header>
+                        <button name="actions_approve_manager" string="Approve Manager" type="object"/>
+                        <button name="actions_approve_hr" string="Approve HR" type="object"/>
+                        <button name="actions_approve_financial_manager" string="Approve Financial Manager"
+                                type="object"/>
+                        <button name="actions_cancel" string="Cancel" type="object"/>
+                        <field name="state" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_title">
+                            <group>
+                            <h1>
+                                <field name="name"/>
+                            </h1>
+                            </group>
+                            <h3>
+                                <group>
+                                    <field name="is_loan_done"/>
+<!--                                    <field name="fully_done" invisible="is_loan_done != True "/>-->
+
+                                </group>
+
+                            </h3>
+
+                        </div>
+
+                        <group>
+                            <group>
+                                <field name="employee_id"/>
+                                <field name="job_name"/>
+                                <field name="department_name"/>
+                                <field name="manager_name"/>
+                                <field name="phone"/>
+                                <field name="age"/>
+                                <field name="birth_date"/>
+                                <field name="currency_id"/>
+                                <field name="salary"/>
+                            </group>
+                            <group>
+                                <field name="amount"/>
+                                <field name="start_deduction_date"/>
+                                <field name="number_of_months"/>
+                            </group>
+                        </group>
+                        <notebook>
+
+                            <page string="Installments">
+                                <group>
+                                    <field name="installment_ids">
+                                        <tree editable="top">
+                                            <field name="date"/>
+                                            <field name="amount"/>
+                                            <field name="paid"/>
+                                            <field name="payslip_id"/>
+                                        </tree>
+
+                                    </field>
+                                </group>
+                            </page>
+
+                        </notebook>
+
+                    </sheet>
+                    <footer>
+
+                    </footer>
+                </form>
+
+            </field>
+        </record>
+        <record id="loan_request_search" model="ir.ui.view">
+            <field name="name">loan.request.search</field>
+            <field name="model">loan.request</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name" string="Name"/>
+                    <field name="state" string="State"/>
+                    <filter string="Approved" name="filter_approved" domain="[('state', '=', 'approved')]"/>
+                    <group string="Group By">
+                        <filter name="state" string="State" context="{'group_by': 'state'}"/>
+                    </group>
+                </search>
+
+            </field>
+        </record>
+
+
+        <record id="view_loan_request_tree" model="ir.ui.view">
+            <field name="name">loan.request.tree</field>
+            <field name="model">loan.request</field>
+            <field name="arch" type="xml">
+                <tree string="Loan Requests">
+                    <field name="name"/>
+                    <field name="employee_id"/>
+                    <field name="amount"/>
+                    <field name="state"/>
+                    <field name="start_deduction_date"/>
+                    <field name="number_of_months"/>
+                    <field name="is_loan_done"
+                    />
+                </tree>
+
+            </field>
+        </record>
+    </data>
+</odoo>
