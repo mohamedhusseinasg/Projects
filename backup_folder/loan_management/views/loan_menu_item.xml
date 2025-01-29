@@ -1,0 +1,18 @@
+<odoo>
+    <menuitem id="menu_loan_management_id" name="Loans"
+              sequence="5"/>
+    <menuitem id="submenu_loan_request" name="Loan Requests"
+              parent="menu_loan_management_id" action="action_loan_requests"
+              sequence="1"
+              groups="loan_management.group_employee"/>
+
+    <menuitem id="submenu_loan_request_approved" name="Approved"
+              parent="menu_loan_management_id" action="action_loan_requests_approved"
+              sequence="2"
+              />
+
+    <menuitem id="submenu_loan_request_canceled" name="Canceled"
+              parent="menu_loan_management_id" action="action_loan_requests_cancelled"
+              sequence="3"
+              />
+</odoo>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="product_category_form_view" model="ir.ui.view">
+        <field name="name">product.category.view.form.inherit</field>
+        <field name="model">product.category</field>
+        <field name="inherit_id" ref="product.product_category_form_view"/>
+        <field name="arch" type="xml">
+            <group name="first" position="inside">
+                <field name="diet_ok" class="oe_inline"/>
+            </group>
+        </field>
+    </record>
+
+    <record id="product_template_form_view" model="ir.ui.view">
+        <field name="name">product.template.view.form.inherit</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_form_view"/>
+        <field name="arch" type="xml">
+            <div name="options" position="inside">
+                <div>
+                    <field name="package_ok"/>
+                    <label for="package_ok"/>
+                    <field name="diet_meal_ok"/>
+                    <label for="diet_meal_ok"/>
+                </div>
+            </div>
+            <page name="inventory" position="after">
+                <page name="DietConfiguration" string="Diet Configuration">
+                    <sheet>
+                        <group>
+                            <field name="category_ids"  options="{'color_field': 'color'}"/>
+                            <!-- <field name="category_id" style="width:40%%" options="{'no_create': True}"/> -->
+                            <field name="color" widget="color_picker"  options="{'color_field': 'color'}"/>
+                        </group>
+                    </sheet>
+                </page>
+            </page>
+            <group name="group_general" position="inside">
+                <field name="total_calories"/>
+            </group>
+        </field>
+    </record>
+
+    <record id="product_product_action_sellable" model="ir.actions.act_window">
+        <field name="name">Products</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">product.template</field>
+        <field name="view_mode">kanban,tree,form,activity</field>
+        <field name="context">{
+            'default_package_ok':1,
+            'default_diet_meal_ok':1,
+
+            }
+        </field>
+        <field name="domain">['|',('package_ok','=',1),('diet_meal_ok','=',1)]</field>
+        <field name="view_id" ref="account.product_template_view_tree"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a new sellable product
+            </p>
+        </field>
+    </record>
+
+</odoo>

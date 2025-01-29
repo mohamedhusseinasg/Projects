@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record model="ir.ui.view" id="freeze_wizard">
+        <field name="name">Freeze Wizard</field>
+        <field name="model">freeze.wizard</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <group>
+                        <field name="minDate" invisible="1" />
+                        <field name="subscriptions_id" invisible="1"/>
+                        <field name="start_date" />
+                    </group>
+                    <group>
+                        <field name="freeze" />
+                    </group>
+                </group>
+                <footer>
+                    <button string="Confirm" name="confirm" type="object" class="oe_highlight" />
+                    <button string="Cancel" special="cancel" />
+                </footer>
+            </form>
+        </field>
+    </record>
+
+</odoo>

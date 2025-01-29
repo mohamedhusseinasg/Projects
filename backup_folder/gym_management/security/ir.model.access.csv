@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+gym_management.access_gym_customer,access_gym_customer,gym_management.model_res_partner,,1,1,1,1
+gym_management.access_gym_trainer,access_gym_trainer,gym_management.model_res_partner,,1,1,1,1
+

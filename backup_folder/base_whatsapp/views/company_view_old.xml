@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_company_form" model="ir.ui.view">
+        <field name="name">res.company.form</field>
+        <field name="model">res.company</field>
+        <field name="inherit_id" ref="base.view_company_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[last()]" position="after">
+                <page string='WhatsApp Gateway' name="base_whatsapp">
+                    <group name="whatsapp_conf">
+                        <group>
+                            <field name='whatsapp_api_url'/>
+                            <field name='whatsapp_api_instance'/>
+                            <field name='daily_message_number'/>
+                        </group>
+                        <group>
+                            <field name='whatsapp_api_token' password="True"/>
+                            <field name='whatsapp_api_authentication' invisible="1"/>
+                            <field name='message_counter'/>
+                        </group>
+                    </group>
+                    <group string="WhatsApp Notifications" name="whatsapp_messages">
+                        <field name="wa_run_sub_message" />
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>

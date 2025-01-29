@@ -1,0 +1,522 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* diet_meals_subscriptions
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0+e-20211018\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-10-27 14:55+0000\n"
+"PO-Revision-Date: 2021-10-27 18:09+0300\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: ar\n"
+"X-Generator: Poedit 2.4.3\n"
+
+#. module: diet_meals_subscriptions
+#: model:ir.model.fields,field_description:diet_meals_subscriptions.field_diet_meals_subscriptions__access_warning
+msgid "Access warning"
+msgstr ""
+
+#. module: diet_meals_subscriptions
+#: model:ir.model.fields,field_description:diet_meals_subscriptions.field_diet_meals_subscriptions__message_needaction
+msgid "Action Needed"
+msgstr ""
+
+#. module: diet_meals_subscriptions
+#: model:ir.model.fields,field_description:diet_meals_subscriptions.field_diet_meals_subscriptions__activity_ids
+msgid "Activities"
+msgstr ""
+
+#. module: diet_meals_subscriptions
+#: model:ir.model.fields,field_description:diet_meals_subscriptions.field_diet_meals_subscriptions__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr ""
+
+#. module: diet_meals_subscriptions
+#: model:ir.model.fields,field_description:diet_meals_subscriptions.field_diet_meals_subscriptions__activity_state
+msgid "Activity State"
+msgstr ""
+
+#. module: diet_meals_subscriptions
+#: model:ir.model.fields,field_description:diet_meals_subscriptions.field_diet_meals_subscriptions__activity_type_icon
+msgid "Activity Type Icon"
+msgstr ""
+
+#. module: diet_meals_subscriptions
+#: model:ir.model.fields,field_description:diet_meals_subscriptions.field_diet_meals_subscriptions__message_attachment_count
+msgid "Attachment Count"
+msgstr ""
+
+#. module: diet_meals_subscriptions
+#: model_terms:ir.ui.view,arch_db:diet_meals_subscriptions.diet_meals_subscriptions_view_form
+msgid "Cancel subscriptions"
+msgstr ""
+
+#. module: diet_meals_subscriptions
+#: model:ir.model.fields.selection,name:diet_meals_subscriptions.selection__diet_meals_subscriptions__state__cancel
+msgid "Cancelled"
+msgstr "تم اللألغاء"
+
+#. module: diet_meals_subscriptions
+#: model:ir.model,name:diet_meals_subscriptions.model_res_company
+msgid "Companies"
+msgstr "شركات"
+
+#. module: diet_meals_subscriptions
+#: model:ir.model.fields,field_description:diet_meals_subscriptions.field_diet_meals_subscriptions__company_id
+msgid "Company"
+msgstr ""
+
+#. module: diet_meals_subscriptions
+#: code:addons/diet_meals_subscriptions/models/model.py:0
+#, python-format
+msgid ""
+"Configured Message fromat is wrong please contact administrator correct it "
+"first."
+msgstr ""
+
+#. module: diet_meals_subscriptions
+#: model_terms:ir.ui.view,arch_db:diet_meals_subscriptions.diet_meals_subscriptions_view_form
+msgid "Create Invoice"
+msgstr "إنشاء الفاتورة"
+
+#. module: diet_meals_subscriptions
+#: model_terms:ir.actions.act_window,help:diet_meals_subscriptions.diet_meals_subscriptions_action
+msgid "Create a new card"
+msgstr ""
+
+#. module: diet_meals_subscriptions
+#: model_terms:ir.actions.act_window,help:diet_meals_subscriptions.product_product_action_sellable
+msgid "Create a new sellable product"
+msgstr ""
+
+#. module: diet_meals_subscriptions
+#: model:ir.model.fields,field_description:diet_meals_subscriptions.field_diet_meals_subscriptions__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: diet_meals_subscriptions
+#: model:ir.model.fields,field_description:diet_meals_subscriptions.field_diet_meals_subscriptions__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: diet_meals_subscriptions
+#: model:ir.model.fields,field_description:diet_meals_subscriptions.field_diet_meals_subscriptions__partner_id
+msgid "Customer"
+msgstr "أسم المشترك"
+
+#. module: diet_meals_subscriptions
+#: model:ir.model.fields,help:diet_meals_subscriptions.field_diet_meals_subscriptions__access_url
+msgid "Customer Portal URL"
+msgstr ""
+
+#. module: diet_meals_subscriptions
+#: model:ir.model.fields.selection,name:diet_meals_subscriptions.selection__product_template__subscriptions_type__days
+msgid "Days"
+msgstr "يوم"
+
+#. module: diet_meals_subscriptions
+#: model:ir.model.fields,field_description:diet_meals_subscriptions.field_diet_meals_subscriptions__display_name
+#: model:ir.model.fields,field_description:diet_meals_subscriptions.field_ksc_mixin__display_name
+#: model:ir.model.fields,field_description:diet_meals_subscriptions.field_product_template__display_name
+#: model:ir.model.fields,field_description:diet_meals_subscriptions.field_res_company__display_name
+#: model:ir.model.fields,field_description:diet_meals_subscriptions.field_res_partner__display_name
+msgid "Display Name"
+msgstr "الاسم المعروض"
+
+#. module: diet_meals_subscriptions
+#: model:ir.model.fields.selection,name:diet_meals_subscriptions.selection__diet_meals_subscriptions__state__done
+msgid "Done"
+msgstr "منتهي"
+
+#. module: diet_meals_subscriptions
+#: model_terms:ir.ui.view,arch_db:diet_meals_subscriptions.diet_meals_subscriptions_view_form
+msgid "Done subscriptions"
+msgstr ""
+
+#. module: diet_meals_subscriptions
+#: model:ir.model.fields.selection,name:diet_meals_subscriptions.selection__diet_meals_subscriptions__state__draft
+msgid "Draft"
+msgstr "غير مفعل"
+
+#. module: diet_meals_subscriptions
+#: model:ir.model.fields,field_description:diet_meals_subscriptions.field_diet_meals_subscriptions__end_date
+#: model_terms:ir.ui.view,arch_db:diet_meals_subscriptions.diet_meals_subscriptions_view_kanban
+msgid "End Date"
+msgstr "تاريخ نهاية الإشتراك"
+
+#. module: diet_meals_subscriptions
+#: model:ir.model.fields,field_description:diet_meals_subscriptions.field_diet_meals_subscriptions__message_follower_ids
+msgid "Followers"
+msgstr ""
+
+#. module: diet_meals_subscriptions
+#: model:ir.model.fields,field_description:diet_meals_subscriptions.field_diet_meals_subscriptions__message_channel_ids
+msgid "Followers (Channels)"
+msgstr ""
+
+#. module: diet_meals_subscriptions
+#: model:ir.model.fields,field_description:diet_meals_subscriptions.field_diet_meals_subscriptions__message_partner_ids
+msgid "Followers (Partners)"
+msgstr ""
+
+#. module: diet_meals_subscriptions
+#: model:ir.model.fields,help:diet_meals_subscriptions.field_diet_meals_subscriptions__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr ""
+
+#. module: diet_meals_subscriptions
+#: model:ir.model.fields,field_description:diet_meals_subscriptions.field_diet_meals_subscriptions__freeze
+#: model:ir.model.fields,field_description:diet_meals_subscriptions.field_product_product__freeze
+#: model:ir.model.fields,field_description:diet_meals_subscriptions.field_product_template__freeze
+#: model:ir.model.fields.selection,name:diet_meals_subscriptions.selection__diet_meals_subscriptions__state__freeze
+msgid "Freeze"
+msgstr "مجمد"
+
+#. module: diet_meals_subscriptions
+#: model_terms:ir.ui.view,arch_db:diet_meals_subscriptions.diet_meals_subscriptions_view_form
+msgid "Freeze subscriptions"
+msgstr ""
+
+#. module: diet_meals_subscriptions
+#: model:ir.actions.act_window,name:diet_meals_subscriptions.diet_meals_subscriptions_action
+#: model:ir.model,name:diet_meals_subscriptions.model_diet_meals_subscriptions
+#: model:ir.ui.menu,name:diet_meals_subscriptions.diet_meals_subscriptions_menu
+#: model:ir.ui.menu,name:diet_meals_subscriptions.diet_meals_subscriptions_root
+#: model_terms:ir.ui.view,arch_db:diet_meals_subscriptions.diet_meals_subscriptions_view_form
+msgid "Diet Meals Subscriptions"
+msgstr "الإشتراكات"
+
+#. module: diet_meals_subscriptions
+#: model:ir.model.fields,field_description:diet_meals_subscriptions.field_diet_meals_subscriptions__id
+#: model:ir.model.fields,field_description:diet_meals_subscriptions.field_ksc_mixin__id
+#: model:ir.model.fields,field_description:diet_meals_subscriptions.field_product_template__id
+#: model:ir.model.fields,field_description:diet_meals_subscriptions.field_res_company__id
+#: model:ir.model.fields,field_description:diet_meals_subscriptions.field_res_partner__id
+msgid "ID"
+msgstr "المُعرف"
+
+#. module: diet_meals_subscriptions
+#: model:ir.model.fields,field_description:diet_meals_subscriptions.field_diet_meals_subscriptions__activity_exception_icon
+msgid "Icon"
+msgstr ""
+
+#. module: diet_meals_subscriptions
+#: model:ir.model.fields,help:diet_meals_subscriptions.field_diet_meals_subscriptions__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr ""
+
+#. module: diet_meals_subscriptions
+#: model:ir.model.fields,help:diet_meals_subscriptions.field_diet_meals_subscriptions__message_needaction
+#: model:ir.model.fields,help:diet_meals_subscriptions.field_diet_meals_subscriptions__message_unread
+msgid "If checked, new messages require your attention."
+msgstr ""
+
+#. module: diet_meals_subscriptions
+#: model:ir.model.fields,help:diet_meals_subscriptions.field_diet_meals_subscriptions__message_has_error
+#: model:ir.model.fields,help:diet_meals_subscriptions.field_diet_meals_subscriptions__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr ""
+
+#. module: diet_meals_subscriptions
+#: model:ir.model.fields,field_description:diet_meals_subscriptions.field_diet_meals_subscriptions__image_128
+msgid "Image"
+msgstr ""
+
+#. module: diet_meals_subscriptions
+#: model:ir.model.fields.selection,name:diet_meals_subscriptions.selection__diet_meals_subscriptions__state__in_progrees
+msgid "In Progrees"
+msgstr "جاري"
+
+#. module: diet_meals_subscriptions
+#: model:ir.model.fields,field_description:diet_meals_subscriptions.field_diet_meals_subscriptions__invoice_id
+msgid "Invoice"
+msgstr ""
+
+#. module: diet_meals_subscriptions
+#: model:ir.model.fields.selection,name:diet_meals_subscriptions.selection__diet_meals_subscriptions__state__invoiced
+msgid "Invoiced"
+msgstr "تم أنشاء الفاتورة"
+
+#. module: diet_meals_subscriptions
+#: model:ir.model.fields,field_description:diet_meals_subscriptions.field_diet_meals_subscriptions__message_is_follower
+msgid "Is Follower"
+msgstr ""
+
+#. module: diet_meals_subscriptions
+#: model:ir.model.fields,field_description:diet_meals_subscriptions.field_product_product__is_subscriptions
+#: model:ir.model.fields,field_description:diet_meals_subscriptions.field_product_template__is_subscriptions
+msgid "Is Subscriptions"
+msgstr "منتج إشتلااك"
+
+#. module: diet_meals_subscriptions
+#: model:ir.model,name:diet_meals_subscriptions.model_ksc_mixin
+msgid "KSC Mixin"
+msgstr ""
+
+#. module: diet_meals_subscriptions
+#: model:ir.model.fields,field_description:diet_meals_subscriptions.field_diet_meals_subscriptions____last_update
+#: model:ir.model.fields,field_description:diet_meals_subscriptions.field_ksc_mixin____last_update
+#: model:ir.model.fields,field_description:diet_meals_subscriptions.field_product_template____last_update
+#: model:ir.model.fields,field_description:diet_meals_subscriptions.field_res_company____last_update
+#: model:ir.model.fields,field_description:diet_meals_subscriptions.field_res_partner____last_update
+msgid "Last Modified on"
+msgstr "آخر تعديل في"
+
+#. module: diet_meals_subscriptions
+#: model:ir.model.fields,field_description:diet_meals_subscriptions.field_diet_meals_subscriptions__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: diet_meals_subscriptions
+#: model:ir.model.fields,field_description:diet_meals_subscriptions.field_diet_meals_subscriptions__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: diet_meals_subscriptions
+#: model:ir.model.fields,field_description:diet_meals_subscriptions.field_diet_meals_subscriptions__message_main_attachment_id
+msgid "Main Attachment"
+msgstr ""
+
+#. module: diet_meals_subscriptions
+#: model:ir.model.fields,field_description:diet_meals_subscriptions.field_diet_meals_subscriptions__message_has_error
+msgid "Message Delivery error"
+msgstr ""
+
+#. module: diet_meals_subscriptions
+#: model:ir.model.fields,field_description:diet_meals_subscriptions.field_diet_meals_subscriptions__message_ids
+msgid "Messages"
+msgstr ""
+
+#. module: diet_meals_subscriptions
+#: model:ir.model.fields.selection,name:diet_meals_subscriptions.selection__product_template__subscriptions_type__months
+msgid "Months"
+msgstr "شهر"
+
+#. module: diet_meals_subscriptions
+#: model:ir.model.fields,field_description:diet_meals_subscriptions.field_diet_meals_subscriptions__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr ""
+
+#. module: diet_meals_subscriptions
+#: model:ir.model.fields,field_description:diet_meals_subscriptions.field_diet_meals_subscriptions__name
+#, fuzzy
+msgid "Name"
+msgstr "الإسم"
+
+#. module: diet_meals_subscriptions
+#: model:ir.model.fields,field_description:diet_meals_subscriptions.field_diet_meals_subscriptions__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr ""
+
+#. module: diet_meals_subscriptions
+#: model:ir.model.fields,field_description:diet_meals_subscriptions.field_diet_meals_subscriptions__activity_summary
+msgid "Next Activity Summary"
+msgstr ""
+
+#. module: diet_meals_subscriptions
+#: model:ir.model.fields,field_description:diet_meals_subscriptions.field_diet_meals_subscriptions__activity_type_id
+msgid "Next Activity Type"
+msgstr ""
+
+#. module: diet_meals_subscriptions
+#: model_terms:ir.actions.act_window,help:diet_meals_subscriptions.diet_meals_subscriptions_action
+msgid "No data yet!"
+msgstr ""
+
+#. module: diet_meals_subscriptions
+#: model:ir.model.fields,field_description:diet_meals_subscriptions.field_diet_meals_subscriptions__message_needaction_counter
+msgid "Number of Actions"
+msgstr ""
+
+#. module: diet_meals_subscriptions
+#: model:ir.model.fields,field_description:diet_meals_subscriptions.field_diet_meals_subscriptions__message_has_error_counter
+msgid "Number of errors"
+msgstr ""
+
+#. module: diet_meals_subscriptions
+#: model:ir.model.fields,help:diet_meals_subscriptions.field_diet_meals_subscriptions__message_needaction_counter
+msgid "Number of messages which requires an action"
+msgstr ""
+
+#. module: diet_meals_subscriptions
+#: model:ir.model.fields,help:diet_meals_subscriptions.field_diet_meals_subscriptions__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr ""
+
+#. module: diet_meals_subscriptions
+#: model:ir.model.fields,help:diet_meals_subscriptions.field_diet_meals_subscriptions__message_unread_counter
+msgid "Number of unread messages"
+msgstr ""
+
+#. module: diet_meals_subscriptions
+#: code:addons/diet_meals_subscriptions/models/model.py:0
+#, python-format
+msgid "Please Set Subscription Template first."
+msgstr ""
+
+#. module: diet_meals_subscriptions
+#: model:ir.model.fields,field_description:diet_meals_subscriptions.field_diet_meals_subscriptions__access_url
+msgid "Portal Access URL"
+msgstr ""
+
+#. module: diet_meals_subscriptions
+#: model:ir.model,name:diet_meals_subscriptions.model_product_template
+msgid "Product template"
+msgstr ""
+
+#. module: diet_meals_subscriptions
+#: model:ir.actions.act_window,name:diet_meals_subscriptions.product_product_action_sellable
+#: model:ir.ui.menu,name:diet_meals_subscriptions.products_menu
+msgid "Products"
+msgstr "أنواع الإشتراكات"
+
+#. module: diet_meals_subscriptions
+#: model:ir.model,name:diet_meals_subscriptions.model_res_partner
+msgid "Res Partner"
+msgstr ""
+
+#. module: diet_meals_subscriptions
+#: model:ir.model.fields,field_description:diet_meals_subscriptions.field_diet_meals_subscriptions__activity_user_id
+msgid "Responsible User"
+msgstr ""
+
+#. module: diet_meals_subscriptions
+#: model_terms:ir.ui.view,arch_db:diet_meals_subscriptions.diet_meals_subscriptions_view_form
+msgid "Run subscriptions"
+msgstr ""
+
+#. module: diet_meals_subscriptions
+#: model:ir.model.fields,field_description:diet_meals_subscriptions.field_diet_meals_subscriptions__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr ""
+
+#. module: diet_meals_subscriptions
+#: model:ir.actions.server,name:diet_meals_subscriptions.auto_action_subscriptions_done_scheduler_ir_actions_server
+#: model:ir.cron,cron_name:diet_meals_subscriptions.auto_action_subscriptions_done_scheduler
+#: model:ir.cron,name:diet_meals_subscriptions.auto_action_subscriptions_done_scheduler
+msgid "Scheduler for Auto Diet Meals Subscriptions Done"
+msgstr ""
+
+#. module: diet_meals_subscriptions
+#: model:ir.actions.server,name:diet_meals_subscriptions.auto_action_subscriptions_msg_before_done_ir_actions_server
+#: model:ir.cron,cron_name:diet_meals_subscriptions.auto_action_subscriptions_msg_before_done
+#: model:ir.cron,name:diet_meals_subscriptions.auto_action_subscriptions_msg_before_done
+msgid "Scheduler for Auto Diet Meals Subscriptions Msg Before Done"
+msgstr ""
+
+#. module: diet_meals_subscriptions
+#: model:ir.model.fields,field_description:diet_meals_subscriptions.field_diet_meals_subscriptions__access_token
+msgid "Security Token"
+msgstr ""
+
+#. module: diet_meals_subscriptions
+#: model:ir.model.fields,field_description:diet_meals_subscriptions.field_diet_meals_subscriptions__start_date
+#: model_terms:ir.ui.view,arch_db:diet_meals_subscriptions.diet_meals_subscriptions_view_kanban
+msgid "Start Date"
+msgstr "تاريخ بداية الإشتراك"
+
+#. module: diet_meals_subscriptions
+#: model:ir.model.fields,field_description:diet_meals_subscriptions.field_diet_meals_subscriptions__state
+msgid "State"
+msgstr ""
+
+#. module: diet_meals_subscriptions
+#: model:ir.model.fields,help:diet_meals_subscriptions.field_diet_meals_subscriptions__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+
+#. module: diet_meals_subscriptions
+#: model:ir.model.fields,field_description:diet_meals_subscriptions.field_diet_meals_subscriptions__product_id
+msgid "Subscription Template"
+msgstr "نوع الإشتراك"
+
+#. module: diet_meals_subscriptions
+#: model:ir.model.fields,field_description:diet_meals_subscriptions.field_product_product__subscriptions
+#: model:ir.model.fields,field_description:diet_meals_subscriptions.field_product_template__subscriptions
+msgid "Subscriptions"
+msgstr "تفاصيل الإشتراك"
+
+#. module: diet_meals_subscriptions
+#: model:ir.model.fields,field_description:diet_meals_subscriptions.field_product_product__subscriptions_type
+#: model:ir.model.fields,field_description:diet_meals_subscriptions.field_product_template__subscriptions_type
+msgid "Subscriptions Type"
+msgstr ""
+
+#. module: diet_meals_subscriptions
+#: model:ir.model.fields,help:diet_meals_subscriptions.field_diet_meals_subscriptions__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr ""
+
+#. module: diet_meals_subscriptions
+#: model:ir.model.fields,field_description:diet_meals_subscriptions.field_diet_meals_subscriptions__message_unread
+msgid "Unread Messages"
+msgstr ""
+
+#. module: diet_meals_subscriptions
+#: model:ir.model.fields,field_description:diet_meals_subscriptions.field_diet_meals_subscriptions__message_unread_counter
+msgid "Unread Messages Counter"
+msgstr ""
+
+#. module: diet_meals_subscriptions
+#: model_terms:ir.ui.view,arch_db:diet_meals_subscriptions.diet_meals_subscriptions_view_form
+msgid "View Invoice"
+msgstr "إظهار الفاتورة"
+
+#. module: diet_meals_subscriptions
+#: model:ir.model.fields,field_description:diet_meals_subscriptions.field_res_company__wa_diet_meals_subscriptions_end_message
+msgid "Wa Diet Meals Subscriptions End Message"
+msgstr ""
+
+#. module: diet_meals_subscriptions
+#: model:ir.model.fields,field_description:diet_meals_subscriptions.field_res_company__wa_diet_meals_subscriptions_start_message
+msgid "Wa Diet Meals Subscriptions Start Message"
+msgstr ""
+
+#. module: diet_meals_subscriptions
+#: model:ir.model.fields,field_description:diet_meals_subscriptions.field_diet_meals_subscriptions__website_message_ids
+msgid "Website Messages"
+msgstr ""
+
+#. module: diet_meals_subscriptions
+#: model:ir.model.fields,help:diet_meals_subscriptions.field_diet_meals_subscriptions__website_message_ids
+msgid "Website communication history"
+msgstr ""
+
+#. module: diet_meals_subscriptions
+#: model:ir.model.fields.selection,name:diet_meals_subscriptions.selection__product_template__subscriptions_type__years
+msgid "Years"
+msgstr "سنة"
+
+#. module: diet_meals_subscriptions
+#: code:addons/diet_meals_subscriptions/models/model.py:0
+#, python-format
+msgid "You can not delete record not in draft state"
+msgstr ""
+
+#. module: diet_meals_subscriptions
+#: model:res.groups,name:diet_meals_subscriptions.group_allow_cancel_subscriptions
+msgid "allow to cancel subscriptions"
+msgstr ""
+
+#. module: diet_meals_subscriptions
+#: code:addons/diet_meals_subscriptions/models/model.py:0
+#, python-format
+msgid ""
+"partner %s has no Badge ID (partner barcode) set. Please set it on the "
+"partner profile."
+msgstr ""
+
+#. module: diet_meals_subscriptions
+#: model_terms:ir.ui.view,arch_db:diet_meals_subscriptions.diet_meals_subscriptions_view_form
+msgid "unfreeze subscriptions"
+msgstr ""

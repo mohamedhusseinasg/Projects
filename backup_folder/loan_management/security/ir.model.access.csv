@@ -1,0 +1,8 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+loan_management.loan_request,access_loan_management,loan_management.model_loan_request,,1,1,1,1
+loan_management.loan_installment,access_loan_management,loan_management.model_loan_installment,,1,1,1,1
+
+
+
+
+

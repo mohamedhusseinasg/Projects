@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+    <record id="kitchen_meals_form_view" model="ir.ui.view">
+        <field name="name">kitchen.meals.view.form</field>
+        <field name="model">kitchen.meals</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <field name="image" widget="image" class="oe_avatar"/>
+                    <group>
+                        <group>
+                            <field name="name" force_save="1"/>
+                            <field name="description"/>
+                            <field name="sale_price"/>
+                        </group>
+                        <group  >
+                            <field name="color" widget="color_picker"/>
+                            <field name="product_id"/>
+                            <field name="category_id" options="{'color_field': 'color'}"/>
+                           
+                            
+
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="kitchen_meals_action" model="ir.actions.act_window">
+        <field name="name">Kitchen Meals</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">kitchen.meals</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a new Meal
+            </p>
+        </field>
+    </record>
+
+
+    <!-- <record id="kitchen_meal_day_form_view" model="ir.ui.view">
+        <field name="name">kitchen.meal.day.view.form</field>
+        <field name="model">kitchen.meal.day</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="date" />
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="kitchen_meal_ids" options="{'color_field': 'color'}" widget="many2many_tags"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="kitchen_meal_day_action" model="ir.actions.act_window">
+        <field name="name">Schedule Meal</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">kitchen.meal.day</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a new Schedule Meal
+            </p>
+        </field>
+    </record> -->
+
+</odoo>

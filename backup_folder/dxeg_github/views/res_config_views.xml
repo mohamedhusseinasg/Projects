@@ -1,0 +1,63 @@
+<odoo>
+    <record id="view_dxeg_github_settings_form" model="ir.ui.view">
+        <field name="name">view.dxeg.github.settings.form</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form" position="inside">
+                <app data-string="Github Cloner" string="Github Cloner" name="dxeg_github"
+                     groups="dxeg_github.group_dxeg_github_manager">
+                    <block title="Github Cloner" name="Github Cloner">
+                        data-key="dxeg_github">
+                        <div class="row mt16 o_settings_container">
+                            <div class="col-xs-12 col-md-6 o_setting_box">
+                                <div class="o_setting_right_pane">
+                                    <label for="addons_dir"/>
+                                    <div class="text-muted">
+                                        Don not add "/" to end
+                                    </div>
+                                    <div class="content-group">
+                                        <div class="mt16">
+                                            <field name="addons_dir"/>
+                                        </div>
+                                    </div>
+                                    <hr/>
+                                    <label for="service_restart_cmd"/>
+                                    <div class="text-muted">
+                                        Default: systemctl restart odoo
+                                        You can restart container with
+                                        http://YOUR-CONTAINER-API/containers/CONTAINER-ID/restart
+                                    </div>
+                                    <div class="content-group">
+                                        <div class="mt16">
+                                            <field name="service_restart_cmd"/>
+                                        </div>
+                                    </div>
+                                    <hr/>
+                                    <label for="sudo_password"/>
+                                    <div class="text-muted">
+                                        Leave blank if restarting odoo does not require sudo
+                                    </div>
+                                    <div class="content-group">
+                                        <div class="mt16">
+                                            <field name="sudo_password"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </block>
+                </app>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="action_dxeg_github_config" model="ir.actions.act_window">
+        <field name="name">Settings</field>
+        <field name="res_model">res.config.settings</field>
+        <field name="view_mode">form</field>
+        <field name="target">inline</field>
+        <field name="context">{'module' : 'dxeg_github'}</field>
+    </record>
+</odoo>

@@ -1,0 +1,54 @@
+<odoo>
+    <record id="trainer_tree_view" model="ir.ui.view">
+        <field name="name">trainer information</field>
+        <field name="model">res.partner</field>
+        <field name="priority">0</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="phone"/>
+                <field name="number_ids"/>
+            </tree>
+        </field>
+    </record>
+    <record id="trainer_form_view1" model="ir.ui.view">
+        <field name="name">trainer informationss</field>
+        <field name="model">res.partner</field>
+                <field name="priority">0</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group string="basic info">
+                        <field name="name"/>
+                        <field name="phone"/>
+                    </group>
+                    <group string="ID Number">
+                        <field name="number_ids" streing="ID Number"/>
+                    </group>
+                    <group string="picture">
+                        <field name="image_1920"/>
+
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="res_partner_trainee_form" model="ir.actions.act_window">
+        <field name="name">trainer information</field>
+        <field name="res_model">res.partner</field>
+        <field name="view_id" ref="trainer_tree_view"/>
+    </record>
+
+            <record id="res_partner_trainer_form" model="ir.actions.act_window">
+                <field name="name">trainer form</field>
+                <field name="res_model">res.partner</field>
+                <field name="view_id" ref="trainer_form_view1"/>
+            </record>
+
+    <menuitem id="trainer_details_id"
+              name="Trainer details" sequence='100'
+              parent="gym_menu_id"
+              action="res_partner_trainee_form"/>
+
+
+</odoo>

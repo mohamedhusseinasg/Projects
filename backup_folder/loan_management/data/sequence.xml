@@ -1,0 +1,9 @@
+<odoo>
+        <record model="ir.sequence" id="loan_request_sequence">
+            <field name="name">loan request</field>
+            <field name="code">loan_request_code</field>
+            <field name="prefix">LR0000</field>
+            <field name="padding">1</field>
+        </record>
+
+</odoo>

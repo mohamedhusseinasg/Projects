@@ -1,0 +1,157 @@
+<odoo>
+    <data>
+        <template id="report_loan_pdf">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="doc">
+                    <t t-call="web.external_layout">
+
+                        <div class="page">
+                            <div class="center mb-4">
+                                <span style="font-size:40px;font-weight:bold">Loan Request#</span>
+                                <span style="font-size:40px;font-weight:bold" t-field="doc.name"/>
+                            </div>
+                            <table class="table table-sm o_main_table" style="direction:ltr;width:100%">-->
+                                <thead>
+                                    <tr>
+                                        <th class="text-left">
+                                            <span>Name</span>
+                                        </th>
+                                        <th>
+                                            <strong>JOP</strong>
+                                        </th>
+                                        <th>
+                                            <strong>Salary</strong>
+                                        </th>
+                                        <th>
+                                            <strong>Join Date</strong>
+                                        </th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+
+                                        <td class="text-center" style="width:40% height:26% ">
+                                            <span t-field="doc.employee_id"/>
+                                        </td>
+                                        <td class="text-center">
+                                            <span t-field="doc.job_name"/>
+                                        </td>
+                                        <td class="text-center">
+                                            <span t-field="doc.salary"/>
+                                        </td>
+                                        <td class="text-center">
+                                            <span t-field="doc.employee_id.join_date"/>
+                                        </td>
+
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <table class="table table-sm o_main_table" style="direction:ltr;width:100%">-->
+                                <thead>
+                                    <tr>
+                                        <th class="text-left">
+                                            <span>Money</span>
+                                        </th>
+                                        <th>
+                                            <strong>Months</strong>
+                                        </th>
+                                        <th>
+                                            <strong>Salary Before Loan</strong>
+                                        </th>
+                                        <th>
+                                            <strong>Salary After Loan</strong>
+                                        </th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+
+                                        <td class="text-center" style="width:40% height:26% ">
+                                            <span t-field="doc.amount"/>
+                                        </td>
+                                        <td class="text-center">
+                                            <span t-field="doc.number_of_months"/>
+                                        </td>
+                                        <td class="text-center">
+                                            <span t-field="doc.salary"/>
+                                        </td>
+                                        <td class="text-center">
+                                            <span t-field="doc.salary_deduction"/>
+                                        </td>
+
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+
+                        <div class="row">
+                            <div class="col-4">
+                                <strong style="font-size:15px;font-weight:bold">Approved by manager:</strong>
+                            </div>
+
+                            <div class="col-4">
+
+                                <strong style="font-size:20px;font-weight:bold">Approved by hr:</strong>
+
+                            </div>
+
+                            <div class="col-6">
+                                <span style="font-size:18px;font-weight:bold">Approved by financial manager:</span>
+
+                            </div>
+
+                        </div>
+                        <div class="row">
+                            <div class="col-4">
+                                <span style="font-size:15px;font-weight" t-field="doc.manager_name"/>
+                            </div>
+
+                            <div class="col-4">
+
+                                <span style="font-size:15px;font-weight" t-field="doc.employee_id.hr_id"/>
+
+                            </div>
+
+                            <div class="col-6">
+                                <span style="font-size:15px;font-weight" t-field="doc.employee_id.financial_manager_id"/>
+
+                            </div>
+
+                        </div>
+
+
+                    </t>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>

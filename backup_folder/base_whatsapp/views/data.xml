@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="default_data_qr_code" model="qr.code.generate">
+            <field name="state">default</field>
+        </record>
+    </data>
+</odoo>

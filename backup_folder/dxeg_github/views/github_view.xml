@@ -1,0 +1,63 @@
+<odoo>
+  <record id="view_dxeg_github_tree" model="ir.ui.view">
+    <field name="name">view.dxeg.github.tree</field>
+    <field name="model">dxeg.github</field>
+    <field name="arch" type="xml">
+      <tree string="Repos">
+        <field name="name"/>
+        <field name="branch"/>
+        <field name="github_access_token"/>
+        <field name="last_commit_id"/>
+        <field name="last_commit_message"/>
+      </tree>
+    </field>
+  </record>
+    
+  <record id="view_dxeg_github_form" model="ir.ui.view">
+        <field name="name">view.dxeg.github.form</field>
+        <field name="model">dxeg.github</field>
+        <field name="arch" type="xml">
+            <form string="Github Repos">
+                <header>
+                    <button name="get_last_commit_action" type="object" string="Clone Now" class="btn btn-primary"
+                            groups="dxeg_github.group_dxeg_github_manager"/>
+                    <button name="backup_database_now" type="object" string="Backup Now" class="btn btn-primary"
+                            groups="dxeg_github.group_dxeg_github_manager"/>
+                    <button name="link_webhook" type="object" string="Link webhook" class="btn btn-primary"
+                            groups="dxeg_github.group_dxeg_github_manager" invisible="state != 'not_linked'"/>
+                    <button name="unlink_webhook" type="object" string="Unlink webhook" class="btn btn-primary"
+                            groups="dxeg_github.group_dxeg_github_manager" invisible="state != 'linked'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="not_linked,linked"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name" readonly="state == 'linked'"/>
+                            <field name="username" readonly="state == 'linked'"/>
+                            <field name="branch"/>
+                        </group>
+                        <group/>
+                    </group>
+                    <group>
+                        <field name="github_access_token"/>
+                    </group>
+                    <group>
+                        <field name="notes"/>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
+                    <field name="activity_ids" widget="mail_activity"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_dxeg_github" model="ir.actions.act_window">
+        <field name="name">Repos</field>
+        <field name="res_model">dxeg.github</field>
+        <field name="view_mode">tree,form</field>
+        <!--        <field name="search_view_id" ref="dxeg_github.view_dxeg_github_filter"/>-->
+    </record>
+</odoo>

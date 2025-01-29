@@ -1,0 +1,39 @@
+<odoo>
+
+    <record id="view_hr_employee_form_inherit" model="ir.ui.view">
+        <field name="name">hr.employee.inherit</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form"/>
+        <field name="arch" type="xml">
+            <field name="department_id" position="before">
+                <field name="join_date"/>
+            </field>
+
+
+            <field name="coach_id" position="after">
+
+                <field name="hr_id"/>
+
+            </field>
+            <field name="hr_id" position="after">
+
+                <field name="financial_manager_id"/>
+
+            </field>
+
+
+            <xpath expr="//header" position="inside">
+                <div class="oe_button_box" name="button_box">
+                    <button name="action_view_loan_requests"
+                            string="View Loan Requests"
+                            type="object"
+                            class="oe_stat_button"
+                            icon="fa-th-list">
+                    </button>
+                </div>
+            </xpath>
+        </field>
+    </record>
+
+
+</odoo>

@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<odoo>
+
+    <!-- whatsapp Menu -->
+    <menuitem id="main_menu_whatsapp" name="WhatsApp" sequence="50" groups="base_whatsapp.group_whatsapp_user" web_icon="base_whatsapp,static/description/icon.png"/>
+
+    <menuitem id="menu_whatsapp" name="WhatsApp" sequence="10" parent="main_menu_whatsapp" action="action_base_whatsapp"/>
+
+    <menuitem id="menu_partner_announcement" name="Announcement" sequence="20" parent="main_menu_whatsapp" action="action_whatsapp_announcement"/>
+    <menuitem id="menu_whatsapp_config" name="Configuration" groups="base_whatsapp.group_whatsapp_manager" sequence="100" parent="main_menu_whatsapp"/>
+
+    <menuitem id="menu_qr_code" name="WhatsApp QRcode" sequence="10" parent="menu_whatsapp_config" action="qr_code_generate_action" groups="base_whatsapp.group_whatsapp_manager"/>
+    <menuitem id="menu_whatsapp_template" name="WhatsApp Template" sequence="20" parent="menu_whatsapp_config" action="action_base_whatsapp_template"/>
+
+
+</odoo>

@@ -1,0 +1,152 @@
+<section>
+    <h4 class="oe_slogan">New Updates Notes</h4>
+    <div class="row">
+        <div class="col-1">
+        </div>
+        <div class="col-10">
+            <div class="text-center mt-4 mb-4">
+                <ul class="text-left">
+                    <li>
+                        <b>17.231109</b>
+                        <ul>
+                            <li>Add support for odoo 17 </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <b>Version 0.3</b>
+                        <ul>
+                            <li>Add support for odoo 13 </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <b>Version 0.2</b>
+                        <ul>
+                            <li>Link webhook automatically </li>
+                            <li>Unlink webhook automatically </li>
+                            <li>Add username field </li>
+                            <li>Remove Repository url field </li>
+                            <li>Remove webhook url field </li>
+                            <li>Remove private repository check </li>
+                            <li>Make Access Token required </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <br>
+    <br>
+    <p class="text-center" style="display:block; border-radius:20px; border:solid 1px #999; background-color:#e85823; padding:24px; color:#fff">
+        Please install "git" before using this module<br>
+        Debian/Ubuntu >> "apt install git" <br>
+        Redhat/Fedora >> "yum install git" <br>
+        Please make sure that your service user have write permission on "Addons directory"<br>
+        Tested on Odoo 14/15 with Python3.9<br>
+        Tested on Odoo 13 with Python3.6
+    </p>
+    <hr style="border: 1px solid #e85823;">
+    <h4 class="oe_slogan">What is this module?</h4>
+    <p class="text-center">
+        With this module you can turn your odoo a like odoo sh.<br>
+        This module will help you automate your development process.<br>
+        After pushing your code this module will <br>
+        Clone your module github repository with ease to your odoo addons directory automatically<br>
+        After clone module will restart your odoo service for you.<br>
+    </p>
+    <h4 class="oe_slogan">Features</h4>
+    <div class="row">
+        <div class="col-1">
+        </div>
+        <div class="col-10">
+            <div class="text-center mt-4 mb-4">
+                <ul class="text-left">
+                    <li>
+                        <b>Your can add unlimited repositories</b>
+                        <ul>
+                            <li>Public repositories</li>
+                            <li>Private repositories</li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="text-left">
+                    <li>
+                        <b>Tow level of permissions</b>
+                        <ul>
+                            <li>User</li>
+                            <li>Administrator</li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="text-left">
+                    <li>
+                        <b>Backup your odoo database from module without master password</b>
+                        <ul>
+                            <li>Only available to Administrator</li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="text-left">
+                    <li>
+                        <b>Define your restarting odoo service command</b>
+                        <ul>
+                            <li>You can add your custom restart command for odoo</li>
+                            <li>You can restart container via passing docker api restart link</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <br>
+            <div class="text-center">
+                <img src="images/settings.png" class="img-fluid">
+            </div>
+            <div class="text-left mt16 mb16"
+                 style="display:block; border-radius:20px; border:solid 1px #999; background-color:#3d7a8d; padding:24px; color:#fff">
+                Configure required data before adding repositories
+            </div>
+            <br>
+            <hr style="border: 1px solid #e85823;">
+            <div class="text-center">
+                <img src="images/addpublic-repo.png" class="img-fluid">
+            </div>
+            <div class="text-left mt16 mb16"
+                 style="display:block; border-radius:20px; border:solid 1px #999; background-color:#3d7a8d; padding:24px; color:#fff">
+                Create your first repository<br>
+                Then click "LINK WEBHOOK" to add webhook to your repository for automatic clones<br>
+            </div>
+            <br>
+            <hr style="border: 1px solid #e85823;">
+            <div class="text-center">
+                <img src="images/github-access-token.png" class="img-fluid">
+            </div>
+            <div class="text-left mt16 mb16"
+                 style="display:block; border-radius:20px; border:solid 1px #999; background-color:#3d7a8d; padding:24px; color:#fff">
+                Create "Personal access tokens" with "full repo" permission to be able to link webhhoks and
+                clone data from private repositories
+            </div>
+            <br>
+            <br>
+            <hr style="border: 1px solid #e85823;">
+            <div class="text-center">
+                <img src="images/manual-and-backup.png" class="img-fluid">
+            </div>
+            <div class="text-left mt16 mb16"
+                 style="display:block; border-radius:20px; border:solid 1px #999; background-color:#3d7a8d; padding:24px; color:#fff">
+                Manual clone and backup database buttons only available for administrators
+            </div>
+            <br>
+            <hr style="border: 1px solid #e85823;">
+            <div class="text-center">
+                <img src="images/fetched-log.png" class="img-fluid">
+            </div>
+            <div class="text-left mt16 mb16"
+                 style="display:block; border-radius:20px; border:solid 1px #999; background-color:#3d7a8d; padding:24px; color:#fff">
+                Every clone will be logged to chatter (Manual clone or automatic clones)
+            </div>
+            <br>
+        </div>
+    </div>
+    <h5 class="oe_slogan"><img src="images/dx-logo.jpg" style="width:128px; margin-left:8px"></h5>
+
+    <div class="text-left mt16 mb16"
+                 style="display:block; border-radius:20px; border:solid 1px #999; background-color:#3d7a8d; padding:24px; color:#fff">
+                <h5 class="oe_slogan" style="color:#fff";><b>Email:</b> <a  style="color:#fff"; href="mailto:info@dxeg.net">info@dxeg.net</a></h5>
+            </div>
+</section>

@@ -1,0 +1,14 @@
+"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
+access_base_whatsapp,access_base_whatsapp,model_base_whatsapp_message,,1,1,1,0
+access_base_whatsapp_user,access_base_whatsapp_user,model_base_whatsapp_message,base_whatsapp.group_whatsapp_user,1,1,1,0
+access_base_whatsapp_manager,access_base_whatsapp_manager,model_base_whatsapp_message,base_whatsapp.group_whatsapp_manager,1,1,1,1
+access_base_whatsapp_template,access_base_whatsapp_template,model_base_whatsapp_template,,1,0,0,0
+access_base_whatsapp_template_user,access_base_whatsapp_template_user,model_base_whatsapp_template,base_whatsapp.group_whatsapp_user,1,1,1,0
+access_base_whatsapp_template_manager,access_base_whatsapp_template_manager,model_base_whatsapp_template,base_whatsapp.group_whatsapp_manager,1,1,1,1
+
+access_base_send_whatsapp,access_base_send_whatsapp,model_base_send_whatsapp,base.group_user,1,1,1,1
+access_base_whatsapp_history,access_base_whatsapp_history,model_base_whatsapp_history,base.group_user,1,1,1,1
+
+
+base_whatsapp_announcement_manager,base_whatsapp_announcement_manager,model_base_whatsapp_announcement,,1,1,1,1
+qr_code_generate_manager,qr_code_generate_manager,model_qr_code_generate,base_whatsapp.group_whatsapp_manager,1,1,1,1
